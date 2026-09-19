@@ -1,11 +1,373 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="./src/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="./src/bootstrap.min.css" rel="stylesheet" />
+    <!-- <script src="./src/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="./src/bootstrap.min.js"></script> -->
+    <!-- 打印时勾选背景图形，否则打不出背景色！！！ -->
+    <title>个人主页-秦玉玺</title>
+    <style type="text/css">
+        @media print {
+            .no-print {
+                /* 隐藏不需要在打印版本中显示的元素 */
+                display: none !important;
+            }
+
+            .container {
+                /* 自适应布局通过字号控制页面排版 */
+                font-size: 18px !important;
+                /* 无法控制第二页的top、bottom */
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+
+            .top-padding {
+                /* 不顶格好看一点，打印时设置为0px */
+                padding-top: 0px !important;
+            }
+        }
+
+        @page {
+            /* auto is the initial value */
+            /* size: auto; */
+            /* this affects the margin in the printer settings 最关键的还是这个*/
+            margin: 8mm 10mm 8mm 10mm;
+
+
+
+        }
+
+        .top-padding {
+            /* 不顶格好看一点，打印时设置为0px */
+            padding-top: 10px !important;
+        }
+
+        .container {
+            /* 默认太宽，修正默认值 */
+            max-width: 800px;
+            font-size: 16px;
+
+        }
+
+        .hline {
+            /* 分割线 */
+            border-top: 3px solid #CCCCCC;
+            height: 0px;
+        }
+
+        .hline-margin {
+            /* 分割线与上下边距 */
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        .point-list {
+            /* 1.列表项去除原有样式 */
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+            /* 黑色圆点 */
+            /* list-style-type: disc; */
+            /* 标记放置在内部 */
+            /* list-style-position: inside; */
+
+        }
+
+        .point-list li::before {
+            /* 2.列表加点 */
+            content: "● ";
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            position: relative;
+            top: -1px;
+        }
+
+        .numbered-list {
+            /* 1.列表项加[] */
+            padding: 0px;
+            margin: 0px;
+            list-style-type: none;
+            counter-reset: section;
+        }
+
+        .numbered-list li::before {
+            /* 2.列表项加[] */
+            counter-increment: section;
+            content: "[" counter(section)"] ";
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+            position: relative;
+            top: -1px;
+        }
+
+        .namelabel {
+            /* 名字后的标签样式 */
+            font-size: 12px;
+            margin-right: 2px;
+            margin-left: 2px;
+            vertical-align: super;
+            position: relative;
+            top: -5px;
+            background-color: #F2F2F2;
+            border: none;
+        }
+
+        .alink {
+            /* 1.重写a标签 */
+            color: #007bff;
+            display: inline-block;
+            position: relative;
+
+        }
+
+        .alink:hover {
+            /* 2.重写a标签 */
+            text-decoration: none;
+            color: #f60;
+            cursor: pointer;
+        }
+
+        .two-align {
+            /* 居中对齐 */
+            text-align: justify
+        }
+
+        .word-break {
+            /* 英文太长强制换行后居中对齐 */
+            word-break: break-all;
+            text-align: justify
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .link-txt {
+            /* 链接文字 */
+            font-size: 12px;
+            margin-left: 2px;
+        }
+
+
+        /* 以下为图标种类 */
+        .i-link {
+            content: url('./src/link.svg');
+            padding-left: 0px;
+        }
+
+        .i-link-s {
+            content: url('./src/links.svg');
+            padding-left: 0px;
+        }
+
+        .i-head {
+            content: url('./src/me.jpg');
+            width: 120px !important;
+            height: 150px !important;
+        }
+    </style>
+</head>
 
 <body>
+    <!-- <span class="i-head"></span> -->
+    <div class="container">
+        <div class="row d-sm-none">
+            <div class="col-sm-12" style="text-align:center;">
+                <!-- <image class="rounded-circle" style="width:90px;" src="./src/me.jpg" /> -->
+                <image class="i-head rounded-circle" src="#" />
+            </div>
+        </div>
+        <div class="row top-padding">
+            <div class="col-sm-10">
+                <h3 style="font-weight:bold;margin-bottom: 8px;">秦玉玺<span class="badge badge-light namelabel">男</span><span class="badge badge-light namelabel">未婚</span><span class="badge badge-light namelabel">汉族</span><span class="badge badge-light namelabel">中共党员</span>
+                </h3>
 
-    <h1>我的第一个标题</h1>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <span style="word-break:break-all;">
+                            出生日期：1992年11月<br />
+                            电子邮箱：yuxi.qin@outlook.com<br />
+                            个人主页：<span class="alink" data-href="https://yuxiqin.github.io">https://yuxiqin.github.io</span><br />
+                        </span>
+                    </div>
+                    <div class="col-sm-5" style="border: 1px;">
+                        <span style="word-break:break-all;">
+                            身高体重：170/60<br />
+                            健康状况：良好<br />
+                            家庭地址：安徽蚌埠<br />
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        研究方向：机器学习、无线感知、信号处理、知识图谱<br />
+                        通信地址：浙江省嘉兴市南湖区南溪东路1968号(邮编: 314006)<br />
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 d-none d-sm-block" style="padding-left: 0px;padding-right: 0px;">
+                <!-- <image class="rounded-circle" style="width:90px;" src="./src/me.jpg" /> -->
+                <image class="i-head rounded-circle" src="#" />
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                研究方向：机器学习、无线感知、信号处理、知识图谱<br />
+                通信地址：浙江省嘉兴市南湖区南溪东路1968号(邮编: 314006)<br />
+            </div>
+        </div> -->
+        <div class="hline hline-margin"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="title">学习经历</h3>
+                2024-02至2026-03(<b>博后</b>)：蓝鸽集团博后工作站，华南理工大学博后流动站，教学知识图谱方向。<br />
+                2019-09至2023-12(<b>博士</b>)：南京邮电大学，通信与信息工程学院，通信与信息系统专业。<br />
+                2015-09至2018-07(<b>硕士</b>)：安徽工业大学，计算机科学与技术学院，计算机科学与技术专业。<br />
+                2011-09至2015-07(<b>本科</b>)：安徽工业大学，计算机科学与技术学院，网络工程专业。<br />
+            </div>
+        </div>
+        <div class="hline hline-margin"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="title">个人经历</h3>
+                <ul class="point-list two-align">
+                    <li>2021-12至2022-12(访学项目)，阿尔托大学，电气工程学院，受国家建设高水平大学公派研究生项目资助，研究基于商用WiFi设备的无线感知技术，通过无线信号仿真平台和进行模拟测试，验证仿真模型的可行性，通过利用MIMO技术解决方向变化对人体动作识别带来的影响。<img class="alink i-link-s" data-href="./src/CSC.jpg" /></li>
+                    <li>2021-08至2021-09(短期实习)，中科院云计算中心(东莞)，能源大数据部门，主要负责华润雪花啤酒厂污水处理工艺中的能源优化问题，通过机器学习的方式综合考虑整个工艺步骤寻找能耗更小的污水处理方式。<img class="alink i-link-s" data-href="./src/PHD-DG.jpg" /></li>
+                    <li>2020-10至2023-10(科研项目)，江苏省研究生科研与实践创新计划项目，负责人，主要负责整个项目的申请、实施以及结项工作，资助金额为1.5万元。该项目围绕本人博士期间的研究工作展开，主要研究基于商用WiFi设备的人体动作识别中的相关难点问题，解决了实际应用中存在的局限性。</li>
+                    <li>2018-07至2019-07(正式工作)，滁州职业技术学院，信息工程学院，专任教师(在编)，主要负责计算机相关课程，如Linux、Shell、Python，同时兼任一个班级的辅导员。</li>
+                    <li>2017-10(省一等奖)，安徽省大学生信息安全作品赛，作品利用人眼有限的时空分辨率以及视觉特性在视频图像中嵌入特定的色块信息，实现人眼无法直接察觉是否出现色块，手机摄像头却可是识别嵌入的信息。<img class="alink i-link-s" data-href="./src/AH-2.jpg" /></li>
+                    <li>2016-10(省三等奖)，安徽省高校物联网应用创新大赛，作品利用手机发射出的红外信号通过自主开发的Android软件来控制自主设计的嵌入式智能小车，能够实现遥控智能小车的移动状态。<img class="alink i-link-s" data-href="./src/AH-1.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hline hline-margin"></div>
+        <div class="row">
+            <div class="col-sm-12 two-align">
+                <h3 class="title">研究方向 & 机器学习</h3>
+                博士期间主要致力于人工智能(AI)/无线感知领域内的相关实际问题进行深入研究，基于人体动作变化会对无线信道造成影响的基本原理，通过从廉价WiFi设备中获取的信道状态信息(CSI)来感知无线信道的变化，提出了对CSI数据异常校正、数据降噪、特征提取等步骤中的相关算法，利用获取到的动作特征信息构建了对用户、环境、方向变化不敏感的动作检测和识别模型。
+                研究中常用的机器学习算法有：PCA、LDA、SVM、KNN、EM、K-Means、Adaboost、贝叶斯算法、GDBT、差分进化算法、BP神经网络、自编码器、CNN、LSTM、GAN等。
+            </div>
+        </div>
+        <div class="hline hline-margin"></div>
+        <div class="row">
+            <div class="col-sm-12 two-align">
+                <h3 class="title">个人优势</h3>
+                性格直率、热情开朗、有同理心能够很好地处理人际关系，担任过2年班长有较好的组织领导能力。具有较强的编程、学习能力，对新技术的掌握速度快。有实际的B/S、C/S程序开发经验，其中精通: Python、C#、 SQL、JavaScript、HTML；熟悉：C/C++、Java、PHP；掌握：WPF、 Extjs 、Unity3D、Hadoop。<br />
+            </div>
+        </div>
+        <div class="hline hline-margin"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="title">论文成果</h3>
+                <ul class="numbered-list two-align">
+                    <li><b>Qin Y</b>, Sigg S, Pan S, Zhou W, et al. Direction-Agnostic Gesture Recognition System Using Commercial WiFi Devices[J]. <em>Computer Communications</em>, 2024. (SCI)<img class="alink i-link-s" data-href="https://doi.org/10.1016/j.comcom.2023.12.033" /></li>
+                    <li><b>Qin Y</b>, Pan S, Li Z. Cross-domain extendable gesture recognition system using WiFi signals[J]. <em>Electronics Letters</em>, 2023. (SCI)<img class="alink i-link-s" data-href="https://doi.org/10.1049/ell2.12931" /></li>
+                    <li><b>Qin Y</b>, Pan S, Zhou W, et al. WiASL: American Sign Language writing recognition system using commercial WiFi devices[J]. <em>Measurement, 2023</em>. (SCI)<img class="alink i-link-s" data-href="https://doi.org/10.1016/j.measurement.2023.113125" /></li>
+                    <li><b>Qin Y</b>, Pan S, Zhou W, et al. Consumer Wi‐Fi Device Based Action Quality Recognition: An Illustrative Example of Seated Dumbbell Press Action[J]. <em>IET Communications</em>, 2020. (SCI)<img class="alink i-link-s" data-href="https://doi.org/10.1049/cmu2.12093" /></li>
+                    <li>Li Z, Pan S, <b>Qin Y</b>. Multiuser Scheduling Algorithm for 5G IoT Systems Based on Reinforcement Learning[J]. <em>IEEE Transactions on Vehicular Technology</em>, 2023. (SCI)<img class="alink i-link-s" data-href="https://doi.org/10.1109/TVT.2022.3223652" /></li>
+                    <li>Li Z, Pan S, <b>Qin Y</b>. Learning-aided User Scheduling Algorithm for TDD MIMO with Reduction in Pilot Contamination[C]. <em>2023 IEEE International Conference on Communications in China</em>, 2023. (EI)<img class="alink link-txt i-link-s" data-href="https://doi.org/10.1109/ICCC57788.2023.10233374" /></li>
+                    <li>Wang Q，Zhu C，Pan S, <b>Qin Y</b>. IDE-SVM algorithm and it’s usage in Physical layer security method for IoT[J]. <em>Journal of Northwestern Polytechnical University</em>, 2024. (EI)<img class="alink i-link-s"></span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hline hline-margin no-print"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="title">开源项目</h3>
+                <ul class="numbered-list word-break" style="margin-left:0px ;">
+                    <li>
+                        基于Intel 5300 NIC的CSI可视化采集工具：由于Matlab安装不方便、C++语言对非计算机专业的的人不友好，本人使用Python重写了<code>linux-80211n-csitool-supplementary</code>项目中<code>netlink/log_to_file.c</code>、<code>matlab/read_bfee.c</code>文件，并在此基础上为CSI采集构建了模块化、参数化、可视化的Python采集工具，实现了采集的同时实时展示数据界面、通过多种模式参数化设定CSI的采集流程，大大简化了CSI的采集工作的复杂度。
+                        <br />
+                        <div class="alink " data-href="https://gitee.com/yuxiqin/linux-80211n-csitool-supplementary">
+                            <img class="i-link" /><span class="link-txt">https://gitee.com/yuxiqin/linux-80211n-csitool-supplementary</span>
+                        </div>
+                    </li>
+                    <li>
+                        方向无关的动作识别数据库：目前不存在公开的且细致地研究动作方向变换对CSI影响的数据库。本数据库完全由本人建立，其中共有五种手势(画圈、交手、鼓掌、举手、放下手)。其中包含4个目录:<code>[0clap, 1circle, 2cross, 3up_down-d]</code>，其中<code>0clap</code>表示拍手，<code>1circle</code>表示画圆圈，<code>2cross</code>表示交叉双手。在<code>3up_down-d</code>目录中，有举手和举手。每个<code>*.npy</code>的第一个手势是举手，第二个手势是放下手，交替进行。
+                        <br />
+                        <div class="alink" data-href="https://gitlab.com/yuxiqin/direction-independent">
+                            <img class="i-link" /><span class="link-txt">https://gitlab.com/yuxiqin/direction-independent</span>
+                        </div>
+                    </li>
+                    <li>
+                        26个美国手语表示字母的数据库：目前不存在公开的同类CSI数据库，本数据库在2种不同的环境下采集了10个用户的动作信号，每个用户的数据用一个单独的<code>*.npy</code>文件保存。其中24个动作只包含手指的移动，本研究属于微动作检测，设计并实现了基于商用WiFi设备的WiASL系统原型。实验结果表明，对新用户和新环境的识别率为92.13%，10个用户的平均输入速度为每分钟15.81个字母。
+                        <br />
+                        <div class="alink" data-href="https://gitlab.com/yuxiqin/asl-sensing">
+                            <img class="i-link" /><span class="link-txt">https://gitlab.com/yuxiqin/asl-sensing</span>
+                        </div>
+                    </li>
+                    <li>
+                        基于ExtJS+.Net的江苏某公司生产管理系统：本系统前端全部采用<code>ExtJS</code>，后端采用基于.Net的<code>WebAPI</code>形式进行数据交互，共3人完成。后端主要分为业务逻辑层、数据实体层、数据操作层，数据库使用的是<code>SQLServer</code>。系统使用<code>log4net</code>记录日志，通过参数化查询防止注入漏洞，利用过滤器全局验证用户身份，使用<code>NPOI</code>实现数据批量导入、导出功能。系统业务实体主要包括：通讯录、员工、顾客、公司、角色、部门、仓库、物料、产品、订单、合同、经费、快递、供货商等。
+                        <br />
+                        <div class="alink" data-href="https://gitee.com/yuxiqin/pms">
+                            <img class="i-link" /><span class="link-txt">https://gitee.com/yuxiqin/pms</span>
+                        </div>
+                    </li>
+                    <li>
+                        安徽工业大学学生评教系统：本系统为B/S结构校内项目，评教期间访问次数超过一万，稳定运行。系统前端全部采用<code>ExtJS</code>，后端采用基于.Net的<code>WebAPI</code>形式与<code>SQLServer</code>数据库进行交互，共3人完成。系统中共分老师、学术、管理员三种角色。学生端和教师功能较为单一只提供对本学期所学的没门课程进行匿名评价(实际上并不匿名)和查看评价功能，管理员端功能包含角色分配、人员管理、评教信息管理、报表生成、数据导入导出等功能。
+                        <br />
+                        <div class="alink" data-href="https://gitee.com/yuxiqin/ahut-pj">
+                            <img class="i-link" /><span class="link-txt">https://gitee.com/yuxiqin/ahut-pj</span>
+                        </div>
+                    </li>
+                    <li>
+                        驾驶考试模拟系统：本系统为C/S结构，包含驾驶考试中的科目一和科目四考试，本系统由本人单独完成。系统的题库全部来自于网络，通过分析数据Http数据相应情况抓取对方的图文数据形成自己的本地题库，使用基于<code>WiForm</code>的<code>DotNetBar</code>插件进行开发，考虑到电脑性能不佳以及便于部署的要求使用的<code>SQLite</code>数据库保存文本数据。本系统功能主要包括随机抽取题目、答案顺序随机打乱、模拟考试、错题分析、试题标记、答案分析、题库编辑、数据导入导出、生成软件注册机和注册码等。
+                        <br />
+                        <div class="alink" data-href="https://gitee.com/yuxiqin/driving-test">
+                            <img class="i-link" /><span class="link-txt">https://gitee.com/yuxiqin/driving-test</span>
+                        </div>
+                    </li>
+                    <li>
+                        模仿12306查询火车票Android APP：在合法的情况下，用浏览器抓包工具分析官方的异步Http请求规则和参数含义，用<code>HttpOK</code>工具模拟用户端Http请求，抓取所需的数据并展示，实现了1）中专换乘、最早出发、最早到达功能；2）利用<code>SQLlite</code>数据库本地存储抓取到的数据，避免重复查询12306被网关拦截；3）实现本地日历展示日期，考虑闰年闰月等情况，并按照规律计算出了节假日。
+                        <br />
+                        <div class="alink" data-href="https://gitee.com/yuxiqin/train">
+                            <img class="i-link" /><span class="link-txt">https://gitee.com/yuxiqin/train</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hline-margin" style="border-style: dashed;border-width: 1px;border-color: #CCCCCC;"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <span>*本人编写过大量的工具软件，主要涉及：网页数据抓取、网站制作、桌面客户端制作、数据分析处理；主要使用的工具有：<code>Visual Studio</code>、<code>MySQL</code>、<code>SQLServer</code>、<code>C#</code>、<code>EXTJS</code>、<code>JQuery</code>、<code>PHP</code>、<code>Python</code>。</span>
+            </div>
+        </div>
+    </div>
 
-    <p>我的第一个段落。</p>
 
+    <a id="a-node" style="display: none;" href="#" target="_blank">用于模拟a标签跳转</a>
+    <script type="text/javascript">
+        // $('.alink').click(function (e) {
+        //     var el = $(this);
+        //     window.open(el.attr('data-href'), '_blank');// console.log(el.attr('data-href'))
+        // });
+        //重写原生a标签的点击事件，因为原生a标签打印时带下划线
+        var els = document.getElementsByClassName('alink');// console.log(els);
+        Array.prototype.forEach.call(els, function (el) {
+            el.onclick = function () {
+                // window.open(el.getAttribute('data-href'), '_blank');
+                var link = el.getAttribute('data-href');
+                // console.log(link);
+                if (link != null) {
+                    var ael = document.getElementById('a-node');
+                    ael.setAttribute("href", link);
+                    if (link.startsWith("http"))
+                        ael.setAttribute("target", "_blank");
+                    else
+                        ael.setAttribute("target", "_self");
+                    ael.click();
+                }
+
+            };
+        });
+
+    </script>
 </body>
 
 </html>
